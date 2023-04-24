@@ -6,13 +6,15 @@ pragma solidity ^0.8.0;
 //libraries
 
 //contracts
-import "./utils/TestUtils.sol";
+import {BaseTest} from "../Base.t.sol";
 import {Hello} from "src/Hello.sol";
 
-contract HelloTest is TestUtils {
+contract HelloTest is BaseTest {
   Hello internal hello;
 
-  function setUp() external {
+  function setUp() public virtual override {
+    super.setUp();
+
     hello = new Hello();
   }
 
